@@ -1,17 +1,19 @@
-#include "main.h"
-/**
-* free_grid - frees a 2D grid created by alloc_grid
-* @grid: pointer to grid
-* @height: number of rows
-*
-* Return: void
-*/
-void free_grid(int **grid, int height)
-{
-int i;
-if (grid == NULL || height <= 0)
-return;
-for (i = 0; i < height; i++)
-free(grid[i]);
-free(grid);
-}
+#ifndef MAIN_H
+#define MAIN_H
+
+/* Task 0 */
+char *create_array(unsigned int size, char c);
+
+/* Task 1 */
+char *_strdup(char *str);
+
+/* Task 2 */
+char *str_concat(char *s1, char *s2);
+
+/* Task 3 */
+int **alloc_grid(int width, int height);
+
+/* Task 4 */
+void free_grid(int **grid, int height);
+
+#endif /* MAIN_H */
