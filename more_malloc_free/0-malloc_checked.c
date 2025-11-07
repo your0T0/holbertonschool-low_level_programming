@@ -6,7 +6,7 @@
  * @b: number of bytes to allocate
  *
  * Return: pointer to allocated memory
- *         exits with status 98 if malloc fails
+ * If malloc fails, exit with status value 98
  */
 void *malloc_checked(unsigned int b)
 {
