@@ -48,7 +48,7 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 	idx = key_index((const unsigned char *)key, ht->size);
 	tmp = ht->array[idx];
 
-	/* update existing key */
+	
 	while (tmp != NULL)
 	{
 		if (strcmp(tmp->key, key) == 0)
@@ -62,7 +62,6 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 		tmp = tmp->next;
 	}
 
-	/* insert new node at the beginning of the list */
 	node = create_node(key, value);
 	if (node == NULL)
 		return (0);
