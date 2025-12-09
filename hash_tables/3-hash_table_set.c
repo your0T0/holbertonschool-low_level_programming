@@ -40,7 +40,7 @@ static hash_node_t *create_node(const char *key, const char *value)
 int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 {
 	unsigned long int idx;
-	hash_node_t *node, *tmp;
+	hash_node_t *tmp, *node;
 
 	if (ht == NULL || key == NULL || *key == '\0' || value == NULL)
 		return (0);
@@ -48,7 +48,7 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 	idx = key_index((const unsigned char *)key, ht->size);
 	tmp = ht->array[idx];
 
-	
+	/* Update existing key */
 	while (tmp != NULL)
 	{
 		if (strcmp(tmp->key, key) == 0)
@@ -62,6 +62,7 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 		tmp = tmp->next;
 	}
 
+	/* Insert new key at beginning */
 	node = create_node(key, value);
 	if (node == NULL)
 		return (0);
